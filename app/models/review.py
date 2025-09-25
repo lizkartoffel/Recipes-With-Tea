@@ -1,0 +1,16 @@
+from sqlmodel import SQLModel, Field, Relationship
+from typing import List, Optional
+from datetime import datetime
+
+class Review(SQLModel, table = True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    rating: int
+    comment: str
+    
+    created_at: datetime = Field(default_factory=datetime.utcnow)
+
+    user_id: int = Field(foreign_key="user.id")
+    recipe_id: int = Field(foreign_key="recipe.id")
+
+    user: "User" = Relationship(back_populates="reviews")
+    recipe: "Recipe" = Relationship(back_populates="reviews")

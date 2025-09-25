@@ -1,0 +1,12 @@
+from sqlmodel import SQLModel, create_engine, Session
+
+DATABASE_URL = "sqlite:///datbase.db"
+
+engine = create_engine(DATABASE_URL)
+
+def createDB():
+    SQLModel.metadata.create_all(engine)
+
+def createSession():
+    with Session(engine) as session:
+        yield session
