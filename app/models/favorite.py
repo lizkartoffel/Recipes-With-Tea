@@ -1,6 +1,8 @@
 from sqlmodel import SQLModel, Field, Relationship
 from datetime import datetime
 
+from models import *
+
 
 class Favorite(SQLModel, table = True):
   # composite PK prevents duplicate favorites

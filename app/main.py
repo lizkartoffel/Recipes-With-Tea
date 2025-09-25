@@ -1,8 +1,13 @@
-from core.database import createDB
-def main():
-    print("Hello from recipesandtea!")
-    createDB()
+from app import *
+from fastapi import FastAPI
 
 
-if __name__ == "__main__":
-    main()
+createDB()
+
+app = FastAPI()
+
+@app.get("/")
+def hi():
+    return{"smthin"}
+
+

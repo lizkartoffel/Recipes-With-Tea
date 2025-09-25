@@ -3,6 +3,8 @@ from typing import List, Optional
 from datetime import datetime
 from sqlalchemy import JSON, Column
 
+from models import *
+
 class Recipe(SQLModel, table = True):
     id: Optional[int] = Field(default=None, primary_key=True)
     

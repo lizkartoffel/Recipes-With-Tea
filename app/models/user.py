@@ -2,6 +2,8 @@ from sqlmodel import SQLModel, Field, Relationship
 from typing import List, Optional
 from datetime import datetime
 
+from models import *
+
 class User(SQLModel, table=True):
 
     id: Optional[int] = Field(default=None, primary_key=True)
@@ -17,6 +19,8 @@ class User(SQLModel, table=True):
     recipes: List["Recipe"] = Relationship(back_populates="author")
     reviews: List["Review"] = Relationship(back_populates="user")
     favorites: List["Favorite"] = Relationship(back_populates="user")
+
+
 
 
 # regular foreign keys make a new colum in the DB 

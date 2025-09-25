@@ -1,6 +1,8 @@
 from sqlmodel import SQLModel, Field, Relationship
-from typing import List, Optional
+from typing import Optional
 from datetime import datetime
+
+from models import *
 
 class Review(SQLModel, table = True):
     id: Optional[int] = Field(default=None, primary_key=True)
