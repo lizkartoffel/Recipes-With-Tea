@@ -14,5 +14,5 @@ class Review(SQLModel, table = True):
     user_id: int = Field(foreign_key="user.id")
     recipe_id: int = Field(foreign_key="recipe.id")
 
-    user: "User" = Relationship(back_populates="reviews")
-    recipe: "Recipe" = Relationship(back_populates="reviews")
+    user: "User" = Relationship(back_populates="reviews") #1:M
+    recipe: "Recipe" = Relationship(back_populates="reviews") #M:1

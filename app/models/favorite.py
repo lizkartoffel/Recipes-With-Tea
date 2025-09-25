@@ -10,5 +10,5 @@ class Favorite(SQLModel, table = True):
     recipe_id: int = Field(foreign_key="recipe.id", primary_key=True)
     created_at: datetime = Field(default_factory=datetime.utcnow)
 
-    user: "User" = Relationship(back_populates="favorites")
-    recipe: "Recipe" = Relationship(back_populates="favorites")
+    user: "User" = Relationship(back_populates="favorites") #M:M
+    recipe: "Recipe" = Relationship(back_populates="favorites") #M:M

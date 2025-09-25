@@ -14,5 +14,5 @@ class RecipeTag(SQLModel, table=True):
     tag_id: int = Field(foreign_key="tag.id", primary_key=True)
 
     # relationships to allow joins
-    recipe: "Recipe" = Relationship(back_populates="tags")
-    tag: "Tag" = Relationship(back_populates="recipes")
+    recipe: "Recipe" = Relationship(back_populates="tags") #M:M
+    tag: "Tag" = Relationship(back_populates="recipes") #M:M

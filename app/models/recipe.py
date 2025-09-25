@@ -23,7 +23,7 @@ class Recipe(SQLModel, table = True):
     author: "User" = Relationship(back_populates="recipes")
 
     # back refs
-    ingredients: List["Ingredient"] = Relationship(back_populates="recipe")
-    reviews: List["Review"] = Relationship(back_populates="recipe")
-    favorites: List["Favorite"] = Relationship(back_populates="recipe")
-    tags: List["RecipeTag"] = Relationship(back_populates="recipe")
+    ingredients: List["Ingredient"] = Relationship(back_populates="recipe") #1:M
+    reviews: List["Review"] = Relationship(back_populates="recipe") #M:1
+    favorites: List["Favorite"] = Relationship(back_populates="recipe") #M:M
+    tags: List["RecipeTag"] = Relationship(back_populates="recipe") #M:M

@@ -16,9 +16,9 @@ class User(SQLModel, table=True):
     created_at: datetime = Field(default_factory=datetime.utcnow)
 
     # relationships (point to association/other models)
-    recipes: List["Recipe"] = Relationship(back_populates="author")
-    reviews: List["Review"] = Relationship(back_populates="user")
-    favorites: List["Favorite"] = Relationship(back_populates="user")
+    recipes: List["Recipe"] = Relationship(back_populates="author") #M:1
+    reviews: List["Review"] = Relationship(back_populates="user") #1:M
+    favorites: List["Favorite"] = Relationship(back_populates="user") #M:M
 
 
 

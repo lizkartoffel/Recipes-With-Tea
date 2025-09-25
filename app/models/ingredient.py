@@ -10,5 +10,5 @@ class Ingredient(SQLModel, table = True):
     quantity: Optional[str] = None   # e.g. "2 cups", "1 tsp"
     ord: Optional[int] = None        # ordering within recipe (optional)
 
-    recipe_id: int = Field(foreign_key="recipe.id")
-    recipe: "Recipe" = Relationship(back_populates="ingredients")
+    recipe_id: int = Field(foreign_key="recipe.id") 
+    recipe: "Recipe" = Relationship(back_populates="ingredients") #1:M
